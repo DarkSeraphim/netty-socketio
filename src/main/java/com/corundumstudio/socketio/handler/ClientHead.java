@@ -15,11 +15,12 @@
  */
 package com.corundumstudio.socketio.handler;
 
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.handler.codec.http.HttpHeaders;
-import io.netty.util.AttributeKey;
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelFuture;
+import net.minecraft.util.io.netty.channel.ChannelFutureListener;
+import net.minecraft.util.io.netty.handler.codec.http.HttpHeaders;
+import net.minecraft.util.io.netty.util.AttributeKey;
 
 import java.net.SocketAddress;
 import java.util.HashMap;
@@ -33,8 +34,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.Configuration;
 import com.corundumstudio.socketio.DisconnectableHub;
@@ -54,9 +55,9 @@ import com.corundumstudio.socketio.transport.NamespaceClient;
 
 public class ClientHead {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
-    public static final AttributeKey<ClientHead> CLIENT = AttributeKey.<ClientHead>valueOf("client");
+    public static final AttributeKey<ClientHead> CLIENT = new AttributeKey<ClientHead>("client");
 
     private final AtomicBoolean disconnected = new AtomicBoolean();
     private final Map<Namespace, NamespaceClient> namespaceClients = new ConcurrentHashMap<Namespace, NamespaceClient>();

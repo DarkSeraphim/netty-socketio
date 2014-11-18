@@ -1,7 +1,10 @@
-
+/.idea
 /.settings
 /.classpath
 /.project
 /target
 
 /gnupg
+
+dependency-reduced-pom.xml
+netty-socketio.iml

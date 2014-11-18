@@ -15,8 +15,8 @@
  */
 package com.corundumstudio.socketio.protocol;
 
-import io.netty.buffer.ByteBufInputStream;
-import io.netty.buffer.ByteBufOutputStream;
+import net.minecraft.util.io.netty.buffer.ByteBufInputStream;
+import net.minecraft.util.io.netty.buffer.ByteBufOutputStream;
 
 import java.io.IOException;
 import java.util.List;

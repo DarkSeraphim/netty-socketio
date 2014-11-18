@@ -37,6 +37,7 @@ public class Configuration {
 
     private int bossThreads = 0; // 0 = current_processors_amount * 2
     private int workerThreads = 0; // 0 = current_processors_amount * 2
+    @Deprecated
     private boolean useLinuxNativeEpoll;
 
     private boolean allowCustomRequests = false;
@@ -474,9 +475,11 @@ public class Configuration {
         return origin;
     }
 
+    @Deprecated
     public boolean isUseLinuxNativeEpoll() {
         return useLinuxNativeEpoll;
     }
+    @Deprecated
     public void setUseLinuxNativeEpoll(boolean useLinuxNativeEpoll) {
         this.useLinuxNativeEpoll = useLinuxNativeEpoll;
     }

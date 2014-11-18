@@ -15,21 +15,22 @@
  */
 package com.corundumstudio.socketio;
 
-import io.netty.buffer.ByteBufInputStream;
-import io.netty.buffer.ByteBufOutputStream;
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.buffer.ByteBufInputStream;
+import net.minecraft.util.io.netty.buffer.ByteBufOutputStream;
 
 import java.io.IOException;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.protocol.AckArgs;
 import com.corundumstudio.socketio.protocol.JsonSupport;
 
 class JsonSupportWrapper implements JsonSupport {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final JsonSupport delegate;
 

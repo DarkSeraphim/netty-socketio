@@ -15,18 +15,20 @@
  */
 package com.corundumstudio.socketio.handler;
 
-import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.handler.codec.http.DefaultHttpResponse;
-import io.netty.handler.codec.http.FullHttpRequest;
-import io.netty.handler.codec.http.HttpHeaders;
-import io.netty.handler.codec.http.HttpResponse;
-import io.netty.handler.codec.http.HttpResponseStatus;
-import io.netty.handler.codec.http.QueryStringDecoder;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
+
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelFutureListener;
+import net.minecraft.util.io.netty.channel.ChannelHandler.Sharable;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.ChannelInboundHandlerAdapter;
+import net.minecraft.util.io.netty.handler.codec.http.DefaultHttpResponse;
+import net.minecraft.util.io.netty.handler.codec.http.FullHttpRequest;
+import net.minecraft.util.io.netty.handler.codec.http.HttpHeaders;
+import net.minecraft.util.io.netty.handler.codec.http.HttpResponse;
+import net.minecraft.util.io.netty.handler.codec.http.HttpResponseStatus;
+import net.minecraft.util.io.netty.handler.codec.http.QueryStringDecoder;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -35,8 +37,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.Configuration;
 import com.corundumstudio.socketio.Disconnectable;
@@ -60,7 +62,7 @@ import com.corundumstudio.socketio.store.pubsub.PubSubStore;
 @Sharable
 public class AuthorizeHandler extends ChannelInboundHandlerAdapter implements Disconnectable {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final CancelableScheduler disconnectScheduler;
 

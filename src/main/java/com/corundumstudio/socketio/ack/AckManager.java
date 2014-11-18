@@ -23,8 +23,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.AckCallback;
 import com.corundumstudio.socketio.Disconnectable;
@@ -36,6 +36,7 @@ import com.corundumstudio.socketio.protocol.Packet;
 import com.corundumstudio.socketio.scheduler.CancelableScheduler;
 import com.corundumstudio.socketio.scheduler.SchedulerKey;
 import com.corundumstudio.socketio.scheduler.SchedulerKey.Type;
+import net.darkseraphim.util.Logger;
 
 public class AckManager implements Disconnectable {
 
@@ -68,7 +69,7 @@ public class AckManager implements Disconnectable {
 
     }
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final Map<UUID, AckEntry> ackEntries = new ConcurrentHashMap<UUID, AckEntry>();
 

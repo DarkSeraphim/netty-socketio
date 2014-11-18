@@ -15,13 +15,13 @@
  */
 package com.corundumstudio.socketio.protocol;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
-import io.netty.buffer.ByteBufOutputStream;
-import io.netty.buffer.Unpooled;
-import io.netty.handler.codec.base64.Base64;
-import io.netty.handler.codec.base64.Base64Dialect;
-import io.netty.util.CharsetUtil;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBufAllocator;
+import net.minecraft.util.io.netty.buffer.ByteBufOutputStream;
+import net.minecraft.util.io.netty.buffer.Unpooled;
+import net.minecraft.util.io.netty.handler.codec.base64.Base64;
+import net.minecraft.util.io.netty.handler.codec.base64.Base64Dialect;
+import net.minecraft.util.io.netty.util.CharsetUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;

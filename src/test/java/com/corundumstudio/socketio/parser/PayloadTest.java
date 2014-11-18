@@ -16,10 +16,10 @@
 package com.corundumstudio.socketio.parser;
 
 import com.corundumstudio.socketio.namespace.NamespacesHub;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import io.netty.buffer.UnpooledByteBufAllocator;
-import io.netty.util.CharsetUtil;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.Unpooled;
+import net.minecraft.util.io.netty.buffer.UnpooledByteBufAllocator;
+import net.minecraft.util.io.netty.util.CharsetUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;

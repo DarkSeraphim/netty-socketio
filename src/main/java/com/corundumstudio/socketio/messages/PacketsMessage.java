@@ -15,7 +15,7 @@
  */
 package com.corundumstudio.socketio.messages;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 
 import com.corundumstudio.socketio.Transport;
 import com.corundumstudio.socketio.handler.ClientHead;

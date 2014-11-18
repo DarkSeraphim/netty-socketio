@@ -15,10 +15,10 @@
  */
 package com.corundumstudio.socketio.protocol;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufInputStream;
-import io.netty.buffer.Unpooled;
-import io.netty.util.CharsetUtil;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBufInputStream;
+import net.minecraft.util.io.netty.buffer.Unpooled;
+import net.minecraft.util.io.netty.util.CharsetUtil;
 
 import java.io.IOException;
 import java.net.URLDecoder;

@@ -15,8 +15,9 @@
  */
 package com.corundumstudio.socketio.protocol;
 
-import io.netty.buffer.ByteBufInputStream;
-import io.netty.buffer.ByteBufOutputStream;
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.buffer.ByteBufInputStream;
+import net.minecraft.util.io.netty.buffer.ByteBufOutputStream;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -29,8 +30,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.AckCallback;
 import com.corundumstudio.socketio.MultiTypeAckCallback;
@@ -332,7 +333,7 @@ public class JacksonJsonSupport implements JsonSupport {
     private final EventDeserializer eventDeserializer = new EventDeserializer();
     private final AckArgsDeserializer ackArgsDeserializer = new AckArgsDeserializer();
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     public JacksonJsonSupport(Module... modules) {
         if (modules != null && modules.length > 0) {

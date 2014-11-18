@@ -15,30 +15,28 @@
  */
 package com.corundumstudio.socketio.transport;
 
-import io.netty.buffer.ByteBufHolder;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.handler.codec.http.FullHttpRequest;
-import io.netty.handler.codec.http.HttpHeaders;
-import io.netty.handler.codec.http.HttpRequest;
-import io.netty.handler.codec.http.QueryStringDecoder;
-import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
-import io.netty.handler.codec.http.websocketx.CloseWebSocketFrame;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-import io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
-import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
-import io.netty.util.ReferenceCountUtil;
+import net.minecraft.util.io.netty.buffer.ByteBufHolder;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelFuture;
+import net.minecraft.util.io.netty.channel.ChannelFutureListener;
+import net.minecraft.util.io.netty.channel.ChannelHandler.Sharable;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.ChannelInboundHandlerAdapter;
+import net.minecraft.util.io.netty.handler.codec.http.FullHttpRequest;
+import net.minecraft.util.io.netty.handler.codec.http.HttpHeaders;
+import net.minecraft.util.io.netty.handler.codec.http.HttpRequest;
+import net.minecraft.util.io.netty.handler.codec.http.QueryStringDecoder;
+import net.minecraft.util.io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
+import net.minecraft.util.io.netty.handler.codec.http.websocketx.CloseWebSocketFrame;
+import net.minecraft.util.io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import net.minecraft.util.io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
+import net.minecraft.util.io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
+import net.minecraft.util.io.netty.util.ReferenceCountUtil;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.darkseraphim.util.Logger;
 
 import com.corundumstudio.socketio.Configuration;
 import com.corundumstudio.socketio.Transport;
@@ -54,7 +52,7 @@ public class WebSocketTransport extends ChannelInboundHandlerAdapter {
 
     public static final String NAME = "websocket";
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final AuthorizeHandler authorizeHandler;
     private final CancelableScheduler scheduler;
@@ -163,7 +161,7 @@ public class WebSocketTransport extends ChannelInboundHandlerAdapter {
                 }
             });
         } else {
-            WebSocketServerHandshakerFactory.sendUnsupportedVersionResponse(ctx.channel());
+            WebSocketServerHandshakerFactory.sendUnsupportedWebSocketVersionResponse(ctx.channel());
         }
     }
 

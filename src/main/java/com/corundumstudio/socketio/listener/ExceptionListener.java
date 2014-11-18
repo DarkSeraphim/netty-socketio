@@ -15,7 +15,7 @@
  */
 package com.corundumstudio.socketio.listener;
 
-import io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
 
 import java.util.List;
 

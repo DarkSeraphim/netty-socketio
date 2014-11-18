@@ -15,18 +15,19 @@
  */
 package com.corundumstudio.socketio.listener;
 
-import io.netty.channel.ChannelHandlerContext;
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.SocketIOClient;
 
 public class DefaultExceptionListener extends ExceptionListenerAdapter {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     @Override
     public void onEventException(Exception e, List<Object> args, SocketIOClient client) {

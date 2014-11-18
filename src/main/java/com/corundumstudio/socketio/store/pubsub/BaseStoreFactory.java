@@ -15,18 +15,19 @@
  */
 package com.corundumstudio.socketio.store.pubsub;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.handler.AuthorizeHandler;
 import com.corundumstudio.socketio.handler.ClientHead;
 import com.corundumstudio.socketio.namespace.NamespacesHub;
 import com.corundumstudio.socketio.protocol.JsonSupport;
 import com.corundumstudio.socketio.store.StoreFactory;
+import net.darkseraphim.util.Logger;
 
 public abstract class BaseStoreFactory implements StoreFactory {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private Long nodeId = (long) (Math.random() * 1000000);
 

@@ -15,7 +15,7 @@
  */
 package com.corundumstudio.socketio.protocol;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 
 import java.io.Serializable;
 import java.util.ArrayList;

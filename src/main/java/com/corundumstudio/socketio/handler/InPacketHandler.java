@@ -15,14 +15,15 @@
  */
 package com.corundumstudio.socketio.handler;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.util.CharsetUtil;
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.channel.ChannelHandler.Sharable;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.SimpleChannelInboundHandler;
+import net.minecraft.util.io.netty.util.CharsetUtil;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.listener.ExceptionListener;
 import com.corundumstudio.socketio.messages.PacketsMessage;
@@ -36,7 +37,7 @@ import com.corundumstudio.socketio.transport.NamespaceClient;
 @Sharable
 public class InPacketHandler extends SimpleChannelInboundHandler<PacketsMessage> {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final PacketListener packetListener;
     private final PacketDecoder decoder;
@@ -52,7 +53,7 @@ public class InPacketHandler extends SimpleChannelInboundHandler<PacketsMessage>
     }
 
     @Override
-    protected void channelRead0(io.netty.channel.ChannelHandlerContext ctx, PacketsMessage message)
+    protected void channelRead0(net.minecraft.util.io.netty.channel.ChannelHandlerContext ctx, PacketsMessage message)
                 throws Exception {
         ByteBuf content = message.getContent();
         ClientHead client = message.getClient();

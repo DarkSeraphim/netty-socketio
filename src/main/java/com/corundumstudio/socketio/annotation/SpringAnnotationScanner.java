@@ -21,8 +21,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import net.darkseraphim.util.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.util.ReflectionUtils;
@@ -33,7 +33,7 @@ import com.corundumstudio.socketio.SocketIOServer;
 
 public class SpringAnnotationScanner implements BeanPostProcessor {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final List<Class<? extends Annotation>> annotations =
                     Arrays.asList(OnConnect.class, OnDisconnect.class, OnEvent.class);

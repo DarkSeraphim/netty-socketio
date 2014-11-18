@@ -3,19 +3,12 @@
 
  <groupId>com.corundumstudio.socketio</groupId>
  <artifactId>netty-socketio</artifactId>
- <version>1.7.5-SNAPSHOT</version>
+ <version>1.7.5-SNAPSHOT-Customised-For-Bukkit</version>
  <packaging>bundle</packaging>
  <name>NettySocketIO</name>
  <description>Socket.IO server implemented on Java</description>
  <inceptionYear>2012</inceptionYear>
  <url>https://github.com/mrniko/netty-socketio</url>
-
- <scm>
-    <url>scm:git:git@github.com:mrniko/netty-socketio.git</url>
-    <connection>scm:git:git@github.com:mrniko/netty-socketio.git</connection>
-    <developerConnection>scm:git:git@github.com:mrniko/netty-socketio.git</developerConnection>
-   <tag>HEAD</tag>
-  </scm>
 
  <licenses>
      <license>
@@ -37,14 +30,6 @@
          <timezone>+4</timezone>
      </developer>
  </developers>
-
- <distributionManagement>
-     <repository>
-         <id>repo1</id>
-         <name>Release</name>
-         <url>file://C:/123</url>
-     </repository>
- </distributionManagement>
 
  <properties>
      <skipTests>true</skipTests>
@@ -95,41 +80,47 @@
  </profiles>
 
  <dependencies>
-  <dependency>
-  	<groupId>io.netty</groupId>
+  <!--dependency>
+  	<groupId>net.minecraft.util.net.minecraft.util.io.netty</groupId>
   	<artifactId>netty-buffer</artifactId>
   	<version>4.0.24.Final</version>
   </dependency>
   <dependency>
-  	<groupId>io.netty</groupId>
+  	<groupId>net.minecraft.util.net.minecraft.util.io.netty</groupId>
   	<artifactId>netty-common</artifactId>
   	<version>4.0.24.Final</version>
   </dependency>
   <dependency>
-  	<groupId>io.netty</groupId>
+  	<groupId>net.minecraft.util.net.minecraft.util.io.netty</groupId>
   	<artifactId>netty-transport</artifactId>
   	<version>4.0.24.Final</version>
   </dependency>
   <dependency>
-  	<groupId>io.netty</groupId>
+  	<groupId>net.minecraft.util.net.minecraft.util.io.netty</groupId>
   	<artifactId>netty-handler</artifactId>
   	<version>4.0.24.Final</version>
   </dependency>
   <dependency>
-  	<groupId>io.netty</groupId>
+  	<groupId>net.minecraft.util.net.minecraft.util.io.netty</groupId>
   	<artifactId>netty-codec-http</artifactId>
   	<version>4.0.24.Final</version>
   </dependency>
   <dependency>
-  	<groupId>io.netty</groupId>
+  	<groupId>net.minecraft.util.net.minecraft.util.io.netty</groupId>
   	<artifactId>netty-codec</artifactId>
   	<version>4.0.24.Final</version>
-  </dependency>
+  </dependency-->
   <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-transport-native-epoll</artifactId>
         <version>4.0.24.Final</version>
   </dependency>
+
+     <dependency>
+         <groupId>org.spigotmc</groupId>
+         <artifactId>spigot</artifactId>
+         <version>1.7.9-compat</version>
+     </dependency>
   
   <dependency>
       <groupId>org.jmockit</groupId>
@@ -144,11 +135,11 @@
       <scope>test</scope>
   </dependency>
 
-  <dependency>
+  <!--dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.7.7</version>
-  </dependency>
+  </dependency-->
 
   <dependency>
   	<groupId>com.fasterxml.jackson.core</groupId>
@@ -345,6 +336,28 @@
                  </execution>
              </executions>
          </plugin>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-shade-plugin</artifactId>
+              <version>2.3</version>
+              <executions>
+                  <execution>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>shade</goal>
+                      </goals>
+                      <configuration>
+                          <artifactSet>
+                              <includes>
+                                  <include>com.fasterxml.jackson.core:jackson-core:*:*</include>
+                                  <include>com.fasterxml.jackson.core:jackson-databind:*:*</include>
+                                  <include>com.fasterxml.jackson.core:jackson-annotations:*:*</include>
+                              </includes>
+                          </artifactSet>
+                      </configuration>
+                  </execution>
+              </executions>
+          </plugin>
   </plugins>
  </build>
 

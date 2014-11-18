@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.corundumstudio.socketio.protocol.Packet;
 
-import io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.Channel;
 
 public class TransportState {
 

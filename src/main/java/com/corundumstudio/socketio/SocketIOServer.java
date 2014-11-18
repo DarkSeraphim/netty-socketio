@@ -15,23 +15,24 @@
  */
 package com.corundumstudio.socketio;
 
-import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
-import io.netty.channel.FixedRecvByteBufAllocator;
-import io.netty.channel.epoll.EpollEventLoopGroup;
-import io.netty.channel.epoll.EpollServerSocketChannel;
-import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.FutureListener;
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.bootstrap.ServerBootstrap;
+import net.minecraft.util.io.netty.channel.ChannelOption;
+import net.minecraft.util.io.netty.channel.EventLoopGroup;
+import net.minecraft.util.io.netty.channel.FixedRecvByteBufAllocator;
+//import net.minecraft.util.io.netty.channel.epoll.EpollEventLoopGroup;
+//import net.minecraft.util.io.netty.channel.epoll.EpollServerSocketChannel;
+import net.minecraft.util.io.netty.channel.nio.NioEventLoopGroup;
+import net.minecraft.util.io.netty.channel.socket.nio.NioServerSocketChannel;
+import net.minecraft.util.io.netty.util.concurrent.Future;
+import net.minecraft.util.io.netty.util.concurrent.FutureListener;
 
 import java.net.InetSocketAddress;
 import java.util.Collection;
 import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.listener.ClientListeners;
 import com.corundumstudio.socketio.listener.ConnectListener;
@@ -47,7 +48,7 @@ import com.corundumstudio.socketio.namespace.NamespacesHub;
  */
 public class SocketIOServer implements ClientListeners {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final Configuration configCopy;
     private final Configuration configuration;
@@ -132,9 +133,11 @@ public class SocketIOServer implements ClientListeners {
         pipelineFactory.start(configCopy, namespacesHub);
 
         Class channelClass = NioServerSocketChannel.class;
-        if (configCopy.isUseLinuxNativeEpoll()) {
+        // DarkSeraphim: I had to remove this in order to avoid
+        //               the need to recompile the epoll package
+        /*if (configCopy.isUseLinuxNativeEpoll()) {
             channelClass = EpollServerSocketChannel.class;
-        }
+        }*/
 
         ServerBootstrap b = new ServerBootstrap();
         b.group(bossGroup, workerGroup)
@@ -177,10 +180,12 @@ public class SocketIOServer implements ClientListeners {
     }
 
     protected void initGroups() {
-        if (configCopy.isUseLinuxNativeEpoll()) {
+        // DarkSeraphim: I had to remove this in order to avoid
+        //               the need to recompile the epoll package
+        /*if (configCopy.isUseLinuxNativeEpoll()) {
             bossGroup = new EpollEventLoopGroup(configCopy.getBossThreads());
             workerGroup = new EpollEventLoopGroup(configCopy.getWorkerThreads());
-        } else {
+        } else */{
             bossGroup = new NioEventLoopGroup(configCopy.getBossThreads());
             workerGroup = new NioEventLoopGroup(configCopy.getWorkerThreads());
         }

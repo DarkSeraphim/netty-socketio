@@ -15,14 +15,15 @@
  */
 package com.corundumstudio.socketio;
 
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelPipeline;
-import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpRequestDecoder;
-import io.netty.handler.codec.http.HttpResponseEncoder;
-import io.netty.handler.ssl.SslHandler;
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.ChannelInitializer;
+import net.minecraft.util.io.netty.channel.ChannelPipeline;
+import net.minecraft.util.io.netty.handler.codec.http.HttpObjectAggregator;
+import net.minecraft.util.io.netty.handler.codec.http.HttpRequestDecoder;
+import net.minecraft.util.io.netty.handler.codec.http.HttpResponseEncoder;
+import net.minecraft.util.io.netty.handler.ssl.SslHandler;
 
 import java.security.KeyStore;
 
@@ -32,8 +33,8 @@ import javax.net.ssl.SSLEngine;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.ack.AckManager;
 import com.corundumstudio.socketio.handler.AuthorizeHandler;
@@ -70,7 +71,7 @@ public class SocketIOChannelInitializer extends ChannelInitializer<Channel> impl
     public static final String RESOURCE_HANDLER = "resourceHandler";
     public static final String WRONG_URL_HANDLER = "wrongUrlBlocker";
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private AckManager ackManager;
 

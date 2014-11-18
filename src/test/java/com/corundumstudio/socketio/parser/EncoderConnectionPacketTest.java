@@ -15,9 +15,9 @@
  */
 package com.corundumstudio.socketio.parser;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
-import io.netty.util.CharsetUtil;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.Unpooled;
+import net.minecraft.util.io.netty.util.CharsetUtil;
 
 import java.io.IOException;
 

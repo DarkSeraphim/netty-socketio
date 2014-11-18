@@ -15,10 +15,10 @@
  */
 package com.corundumstudio.socketio.scheduler;
 
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.HashedWheelTimer;
-import io.netty.util.Timeout;
-import io.netty.util.TimerTask;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.util.HashedWheelTimer;
+import net.minecraft.util.io.netty.util.Timeout;
+import net.minecraft.util.io.netty.util.TimerTask;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

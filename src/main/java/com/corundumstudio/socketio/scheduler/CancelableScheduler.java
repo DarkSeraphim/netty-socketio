@@ -15,7 +15,7 @@
  */
 package com.corundumstudio.socketio.scheduler;
 
-import io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
 
 import java.util.concurrent.TimeUnit;
 

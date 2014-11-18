@@ -15,7 +15,7 @@
  */
 package com.corundumstudio.socketio.transport;
 
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import net.minecraft.util.io.netty.channel.ChannelInboundHandlerAdapter;
 
 import com.corundumstudio.socketio.Disconnectable;
 

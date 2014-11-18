@@ -15,32 +15,34 @@
  */
 package com.corundumstudio.socketio.handler;
 
-import static io.netty.handler.codec.http.HttpHeaders.Names.ACCESS_CONTROL_ALLOW_CREDENTIALS;
-import static io.netty.handler.codec.http.HttpHeaders.Names.ACCESS_CONTROL_ALLOW_HEADERS;
-import static io.netty.handler.codec.http.HttpHeaders.Names.ACCESS_CONTROL_ALLOW_ORIGIN;
-import static io.netty.handler.codec.http.HttpHeaders.Names.CONNECTION;
-import static io.netty.handler.codec.http.HttpHeaders.Names.CONTENT_TYPE;
-import static io.netty.handler.codec.http.HttpHeaders.Values.KEEP_ALIVE;
-import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelOutboundHandlerAdapter;
-import io.netty.channel.ChannelPromise;
-import io.netty.handler.codec.base64.Base64;
-import io.netty.handler.codec.base64.Base64Dialect;
-import io.netty.handler.codec.http.DefaultHttpResponse;
-import io.netty.handler.codec.http.HttpHeaders;
-import io.netty.handler.codec.http.HttpResponse;
-import io.netty.handler.codec.http.HttpResponseStatus;
-import io.netty.handler.codec.http.LastHttpContent;
-import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-import io.netty.handler.codec.http.websocketx.WebSocketFrame;
-import io.netty.util.Attribute;
-import io.netty.util.AttributeKey;
-import io.netty.util.CharsetUtil;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpHeaders.Names.ACCESS_CONTROL_ALLOW_CREDENTIALS;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpHeaders.Names.ACCESS_CONTROL_ALLOW_HEADERS;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpHeaders.Names.ACCESS_CONTROL_ALLOW_ORIGIN;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpHeaders.Names.CONNECTION;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpHeaders.Names.CONTENT_TYPE;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpHeaders.Values.KEEP_ALIVE;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
+
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelFutureListener;
+import net.minecraft.util.io.netty.channel.ChannelHandler.Sharable;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.ChannelOutboundHandlerAdapter;
+import net.minecraft.util.io.netty.channel.ChannelPromise;
+import net.minecraft.util.io.netty.handler.codec.base64.Base64;
+import net.minecraft.util.io.netty.handler.codec.base64.Base64Dialect;
+import net.minecraft.util.io.netty.handler.codec.http.DefaultHttpResponse;
+import net.minecraft.util.io.netty.handler.codec.http.HttpHeaders;
+import net.minecraft.util.io.netty.handler.codec.http.HttpResponse;
+import net.minecraft.util.io.netty.handler.codec.http.HttpResponseStatus;
+import net.minecraft.util.io.netty.handler.codec.http.LastHttpContent;
+import net.minecraft.util.io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import net.minecraft.util.io.netty.handler.codec.http.websocketx.WebSocketFrame;
+import net.minecraft.util.io.netty.util.Attribute;
+import net.minecraft.util.io.netty.util.AttributeKey;
+import net.minecraft.util.io.netty.util.CharsetUtil;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,8 +51,8 @@ import java.util.Queue;
 import java.util.jar.Attributes;
 import java.util.jar.Manifest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.Configuration;
 import com.corundumstudio.socketio.Transport;
@@ -68,13 +70,13 @@ public class EncoderHandler extends ChannelOutboundHandlerAdapter {
     private static final byte[] BINARY_HEADER = "b4".getBytes(CharsetUtil.UTF_8);
     private static final byte[] OK = "ok".getBytes(CharsetUtil.UTF_8);
 
-    public static final AttributeKey<String> ORIGIN = AttributeKey.valueOf("origin");
-    public static final AttributeKey<String> USER_AGENT = AttributeKey.valueOf("userAgent");
-    public static final AttributeKey<Boolean> B64 = AttributeKey.valueOf("b64");
-    public static final AttributeKey<Integer> JSONP_INDEX = AttributeKey.valueOf("jsonpIndex");
-    public static final AttributeKey<Boolean> WRITE_ONCE = AttributeKey.valueOf("writeOnce");
+    public static final AttributeKey<String> ORIGIN = new AttributeKey("origin");
+    public static final AttributeKey<String> USER_AGENT = new AttributeKey("userAgent");
+    public static final AttributeKey<Boolean> B64 = new AttributeKey("b64");
+    public static final AttributeKey<Integer> JSONP_INDEX = new AttributeKey("jsonpIndex");
+    public static final AttributeKey<Boolean> WRITE_ONCE = new AttributeKey("writeOnce");
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final PacketEncoder encoder;
 

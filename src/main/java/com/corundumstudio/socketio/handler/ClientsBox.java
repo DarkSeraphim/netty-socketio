@@ -15,7 +15,7 @@
  */
 package com.corundumstudio.socketio.handler;
 
-import io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.Channel;
 
 import java.util.Map;
 import java.util.UUID;

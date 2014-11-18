@@ -15,26 +15,28 @@
  */
 package com.corundumstudio.socketio.transport;
 
-import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.handler.codec.http.DefaultHttpResponse;
-import io.netty.handler.codec.http.FullHttpRequest;
-import io.netty.handler.codec.http.HttpHeaders;
-import io.netty.handler.codec.http.HttpMethod;
-import io.netty.handler.codec.http.HttpResponse;
-import io.netty.handler.codec.http.HttpResponseStatus;
-import io.netty.handler.codec.http.QueryStringDecoder;
+import static net.minecraft.util.io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
+
+import net.darkseraphim.util.Logger;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.channel.ChannelFutureListener;
+import net.minecraft.util.io.netty.channel.ChannelHandler.Sharable;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.ChannelInboundHandlerAdapter;
+import net.minecraft.util.io.netty.handler.codec.http.DefaultHttpResponse;
+import net.minecraft.util.io.netty.handler.codec.http.FullHttpRequest;
+import net.minecraft.util.io.netty.handler.codec.http.HttpHeaders;
+import net.minecraft.util.io.netty.handler.codec.http.HttpMethod;
+import net.minecraft.util.io.netty.handler.codec.http.HttpResponse;
+import net.minecraft.util.io.netty.handler.codec.http.HttpResponseStatus;
+import net.minecraft.util.io.netty.handler.codec.http.QueryStringDecoder;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
 
 import com.corundumstudio.socketio.Transport;
 import com.corundumstudio.socketio.handler.AuthorizeHandler;
@@ -51,7 +53,7 @@ public class PollingTransport extends ChannelInboundHandlerAdapter {
 
     public static final String NAME = "polling";
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = Logger.getLogger(getClass());
 
     private final PacketDecoder decoder;
     private final ClientsBox clientsBox;
